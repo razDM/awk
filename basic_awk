@@ -1,0 +1,13 @@
+#
+==> file1 <==
+10 1 def
+15 2 abc
+20 3 ghi
+25 4
+==> file2 <==
+etc abc 1111
+fyi def 2222
+mda ghi 3333
+bla raz 4444
+
+awk 'FNR==NR{a[$2]=$1 FS $3;next}{if(length($3)!=0) print $0,a[$3]}' file2 file1
