@@ -11,7 +11,13 @@ mda ghi 3333
 bla raz 4444
 
 awk 'FNR==NR{a[$2]=$1 FS $3;next}{if(length($3)!=0) print $0,a[$3]}' file2 file1
+Result:
+10 1 def fyi 2222
+15 2 abc etc 1111
+20 3 ghi mda 3333
 
+FNR==NR Functionality:
+-------------------------------------------------------
 awk '{print $0,FILENAME,FNR,NR}' file2 file1etc 
 abc 1111 file2 1 1
 fyi def 2222 file2 2 2
@@ -22,7 +28,7 @@ bla raz 4444 file2 4 4
 15 2 abc file1 2 6
 20 3 ghi file1 3 7
 25 4  file1 4 8
-
+-------------------------------------------------------
 THE FNR==NR will give us the order of processing. First file2.
 we assign an index array a[$2]=$1 $3;next
 
